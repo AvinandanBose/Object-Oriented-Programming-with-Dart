@@ -20,10 +20,11 @@ void main() {
   // Create new point using const constructor.
   Point p1 = new Point(12, 3);
   // Create new point using non-const constructor.
-
+  Point p2 = new Point.clone(p0);
+  // Assign (the same) compile-time constant to p3.
   Point p3 = const Point(12, 3);
   print(identical(p0, p1)); // false
-
+  print(identical(p0, p2)); // false
   print(identical(p0, p3)); // true!
   Point.clone(p1);
   Point.print();
