@@ -3,6 +3,15 @@ class Point {
   final int x;
   final int y;
   const Point(this.x, this.y);
+  Point.clone(Point other)
+      : this.x = other.x,
+        this.y = other.y;
+  factory Point.print() {
+    Point p = new Point.clone(ORIGIN);
+    print(p.x);
+    print(p.y);
+    return p;
+  }
 }
 
 void main() {
@@ -16,5 +25,7 @@ void main() {
   print(identical(p0, p1)); // false
 
   print(identical(p0, p3)); // true!
+  Point.clone(p1);
+  Point.print();
 }
 //identical keyword will check both are boolean true and false.
